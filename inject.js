@@ -880,6 +880,11 @@ function handleDrag(video, e) {
     let style = shadowController.style;
     let dx = e.clientX - initialMouseXY[0];
     let dy = e.clientY - initialMouseXY[1];
+	chrome.storage.sync.set(
+    {
+      controllerLocationX: initialControllerXY[0] + dx,
+      controllerLocationY: initialControllerXY[1] + dy
+    });
     style.left = initialControllerXY[0] + dx + "px";
     style.top = initialControllerXY[1] + dy + "px";
   };
